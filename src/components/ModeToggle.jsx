@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FiMoon, FiSun, FiCheck } from "react-icons/fi";
 import { useTheme } from "../context/ThemeProvider.jsx";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { HiComputerDesktop } from "react-icons/hi2";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -21,7 +22,7 @@ export function ModeToggle() {
   const modes = [
     { id: "light", label: "Light", icon: <FiSun /> },
     { id: "dark", label: "Dark", icon: <FiMoon /> },
-    { id: "system", label: "System", icon: null },
+    { id: "system", label: "System", icon: <HiComputerDesktop /> },
   ];
 
   return (
@@ -31,7 +32,7 @@ export function ModeToggle() {
         aria-haspopup="true"
         aria-expanded={open}
         aria-label="Toggle theme"
-        className="relative flex items-center justify-center w-10 h-10 rounded-md transition hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
+        className="relative flex items-center justify-center rounded-md transition hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500"
       >
         <FiSun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90 text-yellow-500" />
         <FiMoon className="absolute h-5 w-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0 text-indigo-400" />

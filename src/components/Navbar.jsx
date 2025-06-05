@@ -21,32 +21,16 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to={"allgroups"}
+          to={"AllVolunteerNeedposts"}
           className={"hover:bg-indigo-700 hover:text-white"}
         >
-          All Groups
+          All volunteer Need posts
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to={"creategroup"}
-          className={"hover:bg-indigo-700 hover:text-white"}
-        >
-          Create Group
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={"mygroup"}
-          className={"hover:bg-indigo-700 hover:text-white"}
-        >
-          My Groups
-        </NavLink>
-      </li>
-      <li>
-        <NavLink>
+        <Link>
           <ModeToggle></ModeToggle>
-        </NavLink>
+        </Link>
       </li>
     </>
   );
@@ -153,6 +137,35 @@ const Navbar = () => {
               Login
             </NavLink>
           )}
+        </div>
+
+        <div className="">
+          <div className="dropdown dropdown-start">
+            <div tabIndex={0} role="button" className="btn m-1">
+              MyProfile
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 gap-2 shadow-sm"
+            >
+              <li>
+                <NavLink
+                  to={"AddVolunteerNeedPost"}
+                  className={"btn hover:bg-indigo-700 hover:text-white"}
+                >
+                  Add Volunteer need Post
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"ManageMyPosts"}
+                  className={"btn hover:bg-indigo-700 hover:text-white"}
+                >
+                  Manage My Posts
+                </NavLink>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
