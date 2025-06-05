@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import AllVolunteerNeedposts from "../Pages/AllVolunteerNeedposts/AllVolunteerNeedposts";
 import AddVolunteerNeedPost from "../Pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
 import ManageMyPosts from "../Pages/ManageMyPosts/ManageMyPosts";
+import ErrorPages from "../Pages/ErrorPages/ErrorPages";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,15 @@ const router = createBrowserRouter([
         path: "signup",
         Component: SignUp,
       },
+      {
+        path: "*",
+        Component: ErrorPages,
+      },
     ],
+  },
+  {
+    path: "*",
+    Component: ErrorPages,
   },
 ]);
 

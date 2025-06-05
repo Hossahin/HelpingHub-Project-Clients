@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "./../../context/AuthContext";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const SignUp = () => {
   const { createUser, profileUpdate, setLoading, signInWithGoogle } =
@@ -22,10 +23,12 @@ const SignUp = () => {
     const password = e.target.password.value;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-    const form = e.target;
-    const formData = new FormData(form);
-    const userData = Object.fromEntries(formData.entries());
-
+    const userData = {
+      displayName,
+      photoURL,
+      email,
+    };
+    
     if (passwordRegExp.test(password) === false) {
       Swal.error(
         "Password must be at least 6 characters and include both uppercase and lowercase letters."
@@ -43,6 +46,11 @@ const SignUp = () => {
         });
 
         setLoading(false);
+
+        axios
+          .post("http://localhost:3000/signup", userData)
+          .then(() => {})
+          .catch(() => {});
 
         profileUpdate({ displayName: displayName, photoURL: photoURL })
           .then(() => {
@@ -92,7 +100,7 @@ const SignUp = () => {
               Sign up
             </h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-neutral-400">
-              Already have an account? 
+              Already have an account?
               <Link
                 to={"/login"}
                 className="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500"

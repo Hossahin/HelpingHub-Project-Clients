@@ -1,11 +1,36 @@
 import React, { useContext } from "react";
 import AuthContext from "./../../context/AuthContext";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddVolunteerNeedPost = () => {
   const { loginUser } = useContext(AuthContext);
 
+  const handleAddVolunteerNeedPost = (e) => {
+    e.preventDefault();
 
+    const form = e.target;
 
+    const formData = new FormData(form);
+    const VolunteerNeedPost = Object.fromEntries(formData.entries());
+
+    axios
+      .post("http://localhost:3000/AddVolunteerNeedPost", VolunteerNeedPost)
+      .then((res) => {
+        if (res.data) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Add Post",
+            text: "Your Post successfully save DB",
+            showConfirmButton: true,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch(() => {});
+  };
 
   return (
     <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
@@ -18,7 +43,7 @@ const AddVolunteerNeedPost = () => {
           <p className="mt-2 text-sm text-gray-600"></p>
         </div>
 
-        <form className="space-y-6">
+        <form onSubmit={handleAddVolunteerNeedPost} className="space-y-6">
           <div>
             <label
               htmlFor="Thumbnail"
@@ -80,10 +105,10 @@ const AddVolunteerNeedPost = () => {
               id="volunteercategory"
               name="volunteercategory"
               required
-              defaultValue=""
+              defaultValue={""}
               className="mt-1 w-full px-4 py-3 border border-gray-300 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             >
-              <option value="" disabled selected>
+              <option value={""} disabled selected>
                 Select a category
               </option>
               <option value="Healthcare">Healthcare</option>
@@ -149,7 +174,7 @@ const AddVolunteerNeedPost = () => {
 
           <div className="text-center mb-6">
             <h2 className="text-xl font-semibold text-indigo-700">
-              Your Details
+              Organizer Details
             </h2>
           </div>
 
@@ -163,7 +188,7 @@ const AddVolunteerNeedPost = () => {
             <input
               id="organizername"
               type="text"
-              defaultValue={`${loginUser?.displayName}`}
+              value={`${loginUser?.displayName}`}
               readOnly
               name="organizername"
               required
@@ -182,7 +207,7 @@ const AddVolunteerNeedPost = () => {
             <input
               id="organizeremail"
               type="email"
-              defaultValue={`${loginUser?.email}`}
+              value={`${loginUser?.email}`}
               readOnly
               name="organizer   email"
               required

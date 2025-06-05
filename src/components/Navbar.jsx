@@ -56,7 +56,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar p-0 mt-2 bg-white dark:bg-gray-900 rounded-xl px-10 py-3 dark:text-white ">
+    <div className="navbar p-0 mt-2 bg-white dark:bg-gray-900 rounded-xl lg:px-10 py-3 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,7 +92,7 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end gap-3">
+      <div className="navbar-end md:gap-1 lg:gap-3">
         <div className="flex items-center">
           {loginUser && (
             <>
@@ -100,14 +100,16 @@ const Navbar = () => {
                 className="my-anchor-element"
                 data-tooltip-id="my-tooltip"
               >
-                <img
-                  className="w-10 cursor-pointer rounded-full border"
-                  src={
-                    loginUser?.photoURL ||
-                    "https://img.icons8.com/?size=80&id=108639&format=png"
-                  }
-                  alt=""
-                />
+                <div className="avatar">
+                  <div className="ring-primary cursor-pointer ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                    <img
+                      src={
+                        loginUser?.photoURL ||
+                        "https://img.icons8.com/?size=80&id=108639&format=png"
+                      }
+                    />
+                  </div>
+                </div>
               </button>
               <Tooltip
                 id="my-tooltip"
