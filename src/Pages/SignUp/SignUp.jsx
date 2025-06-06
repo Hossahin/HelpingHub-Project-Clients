@@ -21,28 +21,55 @@ const SignUp = () => {
     const photoURL = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
     const userData = {
       displayName,
       photoURL,
       email,
     };
-    
-    if (passwordRegExp.test(password) === false) {
-      Swal.error(
-        "Password must be at least 6 characters and include both uppercase and lowercase letters."
-      );
+
+    if (password.length < 6) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Length must be at least 6 character",
+        showConfirmButton: true,
+        timer: 1500,
+      });
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Must have an Uppercase letter in the password ",
+        showConfirmButton: true,
+        timer: 1500,
+      });
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Must have an Lowercase letter in the password ",
+        showConfirmButton: true,
+        timer: 1500,
+      });
       return;
     }
 
     createUser(email, password)
       .then(() => {
         Swal.fire({
+          position: "center",
+          icon: "success",
           title: "🎉 Registration Successful!",
           text: "Registration successful. Let's get started!",
-          icon: "success",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
 
         setLoading(false);

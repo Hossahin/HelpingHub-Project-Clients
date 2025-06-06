@@ -3,7 +3,6 @@ import AuthContext from "../../context/AuthContext";
 import { Link, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
-
 const Login = () => {
   const { signInUser, setLoading, signInWithGoogle } = useContext(AuthContext);
 
@@ -22,10 +21,12 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         Swal.fire({
+          position: "center",
+          icon: "success",
           title: "✅ Sign-In Success",
           text: "Welcome back! You’ve signed in successfully.",
-          icon: "success",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
         console.log(result);
         navigate(`${location.state ? location.state : "/"}`);
@@ -33,11 +34,14 @@ const Login = () => {
       })
       .catch((error) => {
         Swal.fire({
+          position: "center",
+          icon: "error",
           title: "❌ Sign-In Failed",
           text: "Invalid credentials. Please check your email and password.",
-          icon: "error",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
+
         console.log(error);
         setLoading(false);
       });
@@ -47,10 +51,12 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         Swal.fire({
+          position: "center",
+          icon: "success",
           title: "🎉 Login Successful!",
           text: "Login successful. Let's get started!",
-          icon: "success",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
         console.log(result);
         setLoading(false);
@@ -189,8 +195,6 @@ const Login = () => {
             </form>
           </div>
         </div>
-
-
       </div>
     </>
   );

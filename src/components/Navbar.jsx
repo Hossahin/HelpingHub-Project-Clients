@@ -5,9 +5,14 @@ import { Tooltip } from "react-tooltip";
 import AuthContext from "../context/AuthContext";
 import LoadingSpinners from "./LoadingSpinners";
 import { ModeToggle } from "./ModeToggle";
+import { CgLayoutGridSmall } from "react-icons/cg";
+import { BiMenu } from "react-icons/bi";
 
 const Navbar = () => {
-  const { loginUser, signOutUser, loading } = useContext(AuthContext);
+  const { loginUser, signOutUser, loading, setLayout } =
+    useContext(AuthContext);
+
+
   if (loading) {
     return <LoadingSpinners></LoadingSpinners>;
   }
@@ -27,6 +32,15 @@ const Navbar = () => {
           All volunteer Need posts
         </NavLink>
       </li>
+
+      <button className="cursor-pointer active:text-indigo-700" onClick={() => setLayout("columns")}>
+        <CgLayoutGridSmall size={40} />
+      </button>
+
+      <button className="cursor-pointer active:text-indigo-700" onClick={() => setLayout("table")}>
+        <BiMenu size={30} />
+      </button>
+
       <li>
         <ModeToggle></ModeToggle>
       </li>
@@ -37,18 +51,22 @@ const Navbar = () => {
     signOutUser()
       .then(() => {
         Swal.fire({
+          position: "center",
+          icon: "success",
           title: "✅ Logout Successful",
           text: "You have been successfully logged out.",
-          icon: "success",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
       })
       .catch(() => {
         Swal.fire({
+          position: "center",
+          icon: "error",
           title: "❌ Logout Failed",
           text: "Something went wrong. Please try again.",
-          icon: "error",
-          draggable: true,
+          showConfirmButton: true,
+          timer: 1500,
         });
       });
   };

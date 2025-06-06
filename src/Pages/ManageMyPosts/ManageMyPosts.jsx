@@ -60,7 +60,9 @@ const ManageMyPosts = () => {
   return (
     <div>
       <div className="">
-        <h2>My volunteer need post</h2>
+        <h2 className="text-center font-bold text-5xl">
+          My volunteer need post
+        </h2>
         <div className="overflow-x-auto mt-10 lg:px-4">
           <div className="w-full inline-block shadow-lg rounded-xl overflow-hidden">
             <table className="w-full bg-white text-sm text-gray-700 text-center">
@@ -102,7 +104,9 @@ const ManageMyPosts = () => {
                     </td>
                     <td className="px-1 py-3 lg:px-6 lg:py-4">
                       <div className="flex justify-center gap-1 lg:gap-3">
-                        <Link to={`/Myvolunteerneedpost/update/${MyVolunteer._id}`}>
+                        <Link
+                          to={`/Myvolunteerneedpost/update/${MyVolunteer._id}`}
+                        >
                           <button className="cursor-pointer flex items-center gap-2 px-2 py-2 lg:px-4 lg:py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all duration-200">
                             <FaEdit className="text-white text-base" />
                             <span>Update</span>
@@ -126,7 +130,7 @@ const ManageMyPosts = () => {
                       colSpan="4"
                       className="text-center text-gray-500 px-1 py-3 lg:px-6 lg:py-4"
                     >
-                      No groups found.
+                      No My Volunteer Need Post found
                     </td>
                   </tr>
                 )}
@@ -135,7 +139,7 @@ const ManageMyPosts = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="text-center font-bold text-5xl my-10">
         <h2>My Volunteer Request Post</h2>
       </div>
     </div>
