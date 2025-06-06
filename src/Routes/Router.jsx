@@ -7,6 +7,8 @@ import AllVolunteerNeedposts from "../Pages/AllVolunteerNeedposts/AllVolunteerNe
 import AddVolunteerNeedPost from "../Pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
 import ManageMyPosts from "../Pages/ManageMyPosts/ManageMyPosts";
 import ErrorPages from "../Pages/ErrorPages/ErrorPages";
+import VolunteerNeedPostDetailsPage from "../Pages/VolunteerNeedPostDetailsPage/VolunteerNeedPostDetailsPage";
+import UpdateMyvolunteerneedpost from "../Pages/UpdateMyvolunteerneedpost/UpdateMyvolunteerneedpost";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +32,24 @@ const router = createBrowserRouter([
         Component: AddVolunteerNeedPost,
       },
       {
+        path: "AllVolunteerNeedposts/volunteerneedpostdetailspage/:id",
+        Component: VolunteerNeedPostDetailsPage,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+          ),
+      },
+      {
         path: "ManageMyPosts",
         Component: ManageMyPosts,
+      },
+      {
+        path: "Myvolunteerneedpost/update/:id",
+        Component: UpdateMyvolunteerneedpost,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:3000/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+          ),
       },
       {
         path: "login",

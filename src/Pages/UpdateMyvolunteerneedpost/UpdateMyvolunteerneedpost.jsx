@@ -1,13 +1,25 @@
 import React, { useContext } from "react";
-import AuthContext from "./../../context/AuthContext";
+import { Navigate, useLoaderData, useNavigate } from "react-router";
+import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router";
 
-const AddVolunteerNeedPost = () => {
+const UpdateMyvolunteerneedpost = () => {
   const { loginUser } = useContext(AuthContext);
+  const VolunteerNeedPost = useLoaderData();
 
   const navigate = useNavigate();
+
+  const {
+    _id,
+    Location,
+    Noofvolunteersneeded,
+    description,
+    posttitle,
+    startDate,
+    thumbnail,
+    volunteercategory,
+  } = VolunteerNeedPost;
 
   const handleAddVolunteerNeedPost = (e) => {
     e.preventDefault();
@@ -15,22 +27,25 @@ const AddVolunteerNeedPost = () => {
     const form = e.target;
 
     const formData = new FormData(form);
-    const VolunteerNeedPost = Object.fromEntries(formData.entries());
+    const UpdateVolunteerNeedPost = Object.fromEntries(formData.entries());
 
     axios
-      .post("http://localhost:3000/AddVolunteerNeedPost", VolunteerNeedPost)
+      .put(
+        `http://localhost:3000/Myvolunteerneedposts/${_id}`,
+        UpdateVolunteerNeedPost
+      )
       .then((res) => {
-        if (res.data) {
+        if (res?.data?.modifiedCount) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfully Add Post",
-            text: "Your Post successfully save DB",
+            title: "Successfully Update Post",
+            text: "Your Post successfully Update",
             showConfirmButton: true,
             timer: 1500,
           });
+          console.log(res.data);
           navigate("/ManageMyPosts");
-          form.reset();
         }
       })
       .catch(() => {});
@@ -41,7 +56,7 @@ const AddVolunteerNeedPost = () => {
       <div className="max-w-2xl w-full  shadow-xl rounded-lg p-6 sm:p-8 md:p-10 bg-white dark:bg-gray-900">
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 hover:scale-110 transition-all duration-800">
-            Add volunteer need Post
+            Update volunteer need Post
           </h1>
 
           <p className="mt-2 text-sm text-gray-600"></p>
@@ -59,6 +74,7 @@ const AddVolunteerNeedPost = () => {
               id="thumbnail"
               type="url"
               name="thumbnail"
+              defaultValue={thumbnail}
               required
               placeholder="Enter Thumbnail URL"
               className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
@@ -75,6 +91,7 @@ const AddVolunteerNeedPost = () => {
               id="posttitle"
               type="text"
               name="posttitle"
+              defaultValue={posttitle}
               required
               placeholder="Enter Post Title"
               className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
@@ -92,6 +109,7 @@ const AddVolunteerNeedPost = () => {
               id="description"
               name="description"
               rows="4"
+              defaultValue={description}
               required
               placeholder="What's your volunteer about?"
               className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
@@ -108,8 +126,8 @@ const AddVolunteerNeedPost = () => {
             <select
               id="volunteercategory"
               name="volunteercategory"
+              defaultValue={volunteercategory}
               required
-              defaultValue={""}
               className="mt-1 w-full px-4 py-3 border border-gray-300 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             >
               <option value={""} disabled selected>
@@ -133,6 +151,7 @@ const AddVolunteerNeedPost = () => {
               id="Location"
               name="Location"
               type="text"
+              defaultValue={Location}
               required
               placeholder="Add a location"
               className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
@@ -151,6 +170,7 @@ const AddVolunteerNeedPost = () => {
                 id="Noofvolunteersneeded "
                 type="number"
                 name="Noofvolunteersneeded"
+                defaultValue={Noofvolunteersneeded}
                 required
                 min="2"
                 placeholder="e.g., 25"
@@ -167,6 +187,7 @@ const AddVolunteerNeedPost = () => {
               <input
                 id="startDate"
                 type="date"
+                defaultValue={startDate}
                 name="startDate"
                 required
                 className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
@@ -225,7 +246,7 @@ const AddVolunteerNeedPost = () => {
               type="submit"
               className="cursor-pointer w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-500 ease-in-out transform hover:scale-105"
             >
-              Add Post
+              Update Post
             </button>
           </div>
         </form>
@@ -234,4 +255,4 @@ const AddVolunteerNeedPost = () => {
   );
 };
 
-export default AddVolunteerNeedPost;
+export default UpdateMyvolunteerneedpost;

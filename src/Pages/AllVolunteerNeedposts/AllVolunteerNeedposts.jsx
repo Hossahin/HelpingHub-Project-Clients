@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingSpinners from "../../components/LoadingSpinners";
 import AllVolunteerNeedPostsCard from "../../components/AllVolunteerNeedPostsCard";
+import SearchBar from "../../components/SearchBar";
 
 const AllVolunteerNeedposts = () => {
   const [AllVolunteerNeedPost, setAllVolunteerNeedPost] = useState([]);
@@ -20,6 +21,8 @@ const AllVolunteerNeedposts = () => {
   }
   return (
     <div>
+      <SearchBar></SearchBar>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {AllVolunteerNeedPost.map((AllVolunteer) => (
           <AllVolunteerNeedPostsCard

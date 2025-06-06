@@ -28,9 +28,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <Link>
-          <ModeToggle></ModeToggle>
-        </Link>
+        <ModeToggle></ModeToggle>
       </li>
     </>
   );
