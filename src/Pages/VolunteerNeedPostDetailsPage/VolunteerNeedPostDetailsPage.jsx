@@ -8,6 +8,7 @@ const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
   const DetailsData = useLoaderData();
   const {
+    _id,
     Location,
     Noofvolunteersneeded,
     description,
@@ -47,6 +48,25 @@ const VolunteerNeedPostDetailsPage = () => {
             showConfirmButton: true,
             timer: 2500,
           });
+
+          // start
+          const updateVolunteerAmount = {
+            Noofvolunteersneeded: -1,
+          };
+
+          axios
+            .patch(
+              `http://localhost:3000/AllVolunteerNeedposts/${_id}`,
+              updateVolunteerAmount
+            )
+            .then((res) => {
+              console.log(res.data);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+          // end
+
           navigate("/AllVolunteerNeedposts");
         }
       })

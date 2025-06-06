@@ -16,6 +16,9 @@ const AddVolunteerNeedPost = () => {
 
     const formData = new FormData(form);
     const VolunteerNeedPost = Object.fromEntries(formData.entries());
+    VolunteerNeedPost.Noofvolunteersneeded = parseInt(
+      VolunteerNeedPost.Noofvolunteersneeded
+    );
 
     axios
       .post("http://localhost:3000/AddVolunteerNeedPost", VolunteerNeedPost)
