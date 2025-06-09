@@ -66,7 +66,7 @@ const UpdateMyvolunteerneedpost = () => {
           <p className="mt-2 text-sm text-gray-600"></p>
         </div>
 
-        <form onSubmit={handleAddVolunteerNeedPost} className="space-y-6">
+        <form onSubmit={handleAddVolunteerNeedPost} className="space-y-6 dark:text-white">
           <div>
             <label
               htmlFor="Thumbnail"

@@ -60,7 +60,9 @@ const MyVolunteerRequestPost = () => {
   return (
     <>
       <div className="text-center font-bold text-5xl my-10">
-        <h2>My Volunteer Request Post</h2>
+        <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
+          My Volunteer Request Post
+        </h2>
       </div>
 
       <div className="overflow-x-auto mt-10 lg:px-4">

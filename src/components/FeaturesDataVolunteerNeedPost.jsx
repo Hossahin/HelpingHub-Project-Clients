@@ -24,7 +24,9 @@ const FeaturesDataVolunteerNeedPost = () => {
 
   return (
     <div className="">
-      <h2 className="text-center my-10 text-4xl font-bold">FeaturesData</h2>
+      <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
+        FeaturesData
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {volunteerNeedPost.map((post) => (
           <FeaturesDataCard key={post._id} post={post}></FeaturesDataCard>
@@ -32,7 +34,9 @@ const FeaturesDataVolunteerNeedPost = () => {
       </div>
       <div className="flex justify-center">
         <Link to={"/AllVolunteerNeedposts"}>
-          <button className="btn my-10">See all button</button>
+          <button className="btn my-10 btn-soft btn-primary">
+            See all button
+          </button>
         </Link>
       </div>
     </div>

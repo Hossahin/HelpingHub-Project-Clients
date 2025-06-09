@@ -60,7 +60,7 @@ const MyVolunteerNeedPost = () => {
     <>
       <div>
         <div className="">
-          <h2 className="text-center font-bold text-5xl">
+          <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
             My volunteer need post
           </h2>
           <div className="overflow-x-auto mt-10 lg:px-4">
