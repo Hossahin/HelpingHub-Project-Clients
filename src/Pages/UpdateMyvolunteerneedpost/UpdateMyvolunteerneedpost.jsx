@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Navigate, useLoaderData, useNavigate } from "react-router";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
@@ -7,6 +7,10 @@ import Swal from "sweetalert2";
 const UpdateMyvolunteerneedpost = () => {
   const { loginUser } = useContext(AuthContext);
   const VolunteerNeedPost = useLoaderData();
+
+  useEffect(() => {
+    document.title = "Update My Volunteer Need Post";
+  }, []);
 
   const navigate = useNavigate();
 

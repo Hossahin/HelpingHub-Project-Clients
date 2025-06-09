@@ -7,6 +7,7 @@ const ErrorPages = () => {
   useEffect(() => {
     document.title = "Error Pages";
   }, []);
+
   return (
     <>
       <div className="flex justify-center">

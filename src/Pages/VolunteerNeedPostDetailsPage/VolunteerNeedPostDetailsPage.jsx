@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
@@ -6,6 +6,11 @@ import Swal from "sweetalert2";
 
 const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "Volunteer Details";
+  }, []);
+
   const DetailsData = useLoaderData();
   const {
     _id,
@@ -67,7 +72,7 @@ const VolunteerNeedPostDetailsPage = () => {
             });
           // end
 
-          navigate("/AllVolunteerNeedposts");
+          navigate("/ManageMyPosts");
         }
       })
       .catch(() => {});
@@ -131,7 +136,7 @@ const VolunteerNeedPostDetailsPage = () => {
               Be a Volunteer
             </button>
             <dialog id="my_modal_4" className="modal">
-              <div className="modal-box w-11/12 max-w-5xl">
+              <div className="modal-box w-11/12 max-w-5xl bg-white dark:bg-gray-900">
                 {/* modal start */}
                 <div className="flex flex-col justify-center items-center">
                   <div className="w-full shadow-xl rounded-lg p-3 bg-white dark:bg-gray-900">

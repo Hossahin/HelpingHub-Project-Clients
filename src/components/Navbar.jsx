@@ -12,7 +12,6 @@ const Navbar = () => {
   const { loginUser, signOutUser, loading, setLayout } =
     useContext(AuthContext);
 
-
   if (loading) {
     return <LoadingSpinners></LoadingSpinners>;
   }
@@ -33,12 +32,18 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <button className="cursor-pointer active:text-indigo-700" onClick={() => setLayout("columns")}>
+      <button
+        className="cursor-pointer active:text-indigo-700"
+        onClick={() => setLayout("columns")}
+      >
         <CgLayoutGridSmall size={40} />
       </button>
 
-      <button className="cursor-pointer active:text-indigo-700" onClick={() => setLayout("table")}>
-        <BiMenu size={30} />
+      <button
+        className="cursor-pointer active:text-indigo-700"
+        onClick={() => setLayout("table")}
+      >
+        <BiMenu className="m-1" size={30} />
       </button>
 
       <li>
@@ -94,7 +99,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow  items-start gap-2"
           >
             {navLinks}
           </ul>
@@ -108,7 +113,7 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end md:gap-1 lg:gap-3">
+      <div className="navbar-end gap-1 md:gap-2 lg:gap-3">
         <div className="flex items-center">
           {loginUser && (
             <>
@@ -117,7 +122,7 @@ const Navbar = () => {
                 data-tooltip-id="my-tooltip"
               >
                 <div className="avatar">
-                  <div className="ring-primary cursor-pointer ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                  <div className="ring-primary cursor-pointer ring-offset-base-100 mr-1 sm:m-1 md:m-0 w-9 md:w-10 rounded-full ring-2 ring-offset-2">
                     <img
                       src={
                         loginUser?.photoURL ||
@@ -139,27 +144,12 @@ const Navbar = () => {
         </div>
 
         <div className="">
-          {loginUser ? (
-            <NavLink
-              onClick={handleLogout}
-              className={"btn hover:bg-indigo-700 hover:text-white"}
-              to={"login"}
-            >
-              Logout
-            </NavLink>
-          ) : (
-            <NavLink
-              className={"btn hover:bg-indigo-700 hover:text-white"}
-              to={"login"}
-            >
-              Login
-            </NavLink>
-          )}
-        </div>
-
-        <div className="">
           <div className="dropdown dropdown-start">
-            <div tabIndex={0} role="button" className="btn m-1">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4"
+            >
               MyProfile
             </div>
             <ul
@@ -184,6 +174,29 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="">
+          {loginUser ? (
+            <NavLink
+              onClick={handleLogout}
+              className={
+                "btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 hover:bg-indigo-700 hover:text-white"
+              }
+              to={"login"}
+            >
+              Logout
+            </NavLink>
+          ) : (
+            <NavLink
+              className={
+                "btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 hover:bg-indigo-700 hover:text-white"
+              }
+              to={"login"}
+            >
+              Login
+            </NavLink>
+          )}
         </div>
       </div>
     </div>

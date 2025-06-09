@@ -8,6 +8,10 @@ import AuthContext from "../../context/AuthContext";
 const AllVolunteerNeedposts = () => {
   const { layout } = useContext(AuthContext);
 
+  useEffect(() => {
+    document.title = "All Volunteer Need Post";
+  }, []);
+
   const [AllVolunteerNeedPost, setAllVolunteerNeedPost] = useState([]);
   const [loading, setLoading] = useState(false);
 

@@ -9,6 +9,7 @@ import ManageMyPosts from "../Pages/ManageMyPosts/ManageMyPosts";
 import ErrorPages from "../Pages/ErrorPages/ErrorPages";
 import VolunteerNeedPostDetailsPage from "../Pages/VolunteerNeedPostDetailsPage/VolunteerNeedPostDetailsPage";
 import UpdateMyvolunteerneedpost from "../Pages/UpdateMyvolunteerneedpost/UpdateMyvolunteerneedpost";
+import PrivetRoutes from "../Pages/PrivetRoutes/PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -29,11 +30,19 @@ const router = createBrowserRouter([
       },
       {
         path: "AddVolunteerNeedPost",
-        Component: AddVolunteerNeedPost,
+        element: (
+          <PrivetRoutes>
+            <AddVolunteerNeedPost />
+          </PrivetRoutes>
+        ),
       },
       {
         path: "AllVolunteerNeedposts/volunteerneedpostdetailspage/:id",
-        Component: VolunteerNeedPostDetailsPage,
+        element: (
+          <PrivetRoutes>
+            <VolunteerNeedPostDetailsPage />
+          </PrivetRoutes>
+        ),
         loader: ({ params }) =>
           fetch(
             `http://localhost:3000/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
@@ -41,7 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: "ManageMyPosts",
-        Component: ManageMyPosts,
+        element: (
+          <PrivetRoutes>
+            <ManageMyPosts />
+          </PrivetRoutes>
+        ),
       },
       {
         path: "Myvolunteerneedpost/update/:id",
