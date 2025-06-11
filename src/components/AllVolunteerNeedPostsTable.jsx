@@ -1,6 +1,6 @@
 import React from "react";
-import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router";
+import { FiInfo } from "react-icons/fi";
 
 const AllVolunteerNeedPostsTable = ({ AllVolunteer }) => {
   const { _id, thumbnail, startDate, volunteercategory } = AllVolunteer;
@@ -30,7 +30,10 @@ const AllVolunteerNeedPostsTable = ({ AllVolunteer }) => {
               to={`/AllVolunteerNeedposts/volunteerneedpostdetailspage/${_id}`}
             >
               <button className="cursor-pointer flex items-center gap-2 px-2 py-2 lg:px-4 lg:py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all duration-200">
-                <span>View Details</span>
+                <span className="hidden sm:inline sm:text-[12px] md:text-[14px]">
+                  View Details
+                </span>
+                <FiInfo size={20} className="text-white text-base " />
               </button>
             </Link>
           </div>

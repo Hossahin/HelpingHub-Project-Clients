@@ -79,7 +79,7 @@ const VolunteerNeedPostDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mt-10">
+    <div className="max-w-4xl mx-auto md:p-6 mt-10">
       <div className="bg-white/30 dark:bg-gray-800/50 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden transition-colors duration-500 border border-gray-200 dark:border-gray-700">
         <img
           src={thumbnail}
@@ -87,7 +87,7 @@ const VolunteerNeedPostDetailsPage = () => {
           className="w-full h-64 object-cover rounded-t-3xl"
         />
 
-        <div className="p-6 space-y-4">
+        <div className="p-2 md:p-6 space-y-4">
           <div>
             <h2 className="text-3xl font-bold text-gray-800 dark:text-white tracking-tight">
               {posttitle}

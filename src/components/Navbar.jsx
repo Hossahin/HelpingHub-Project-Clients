@@ -7,6 +7,9 @@ import LoadingSpinners from "./LoadingSpinners";
 import { ModeToggle } from "./ModeToggle";
 import { CgLayoutGridSmall } from "react-icons/cg";
 import { BiMenu } from "react-icons/bi";
+import { TbLogin } from "react-icons/tb";
+import { FaSignOutAlt } from "react-icons/fa";
+import { FaUserEdit } from "react-icons/fa";
 
 const Navbar = () => {
   const { loginUser, signOutUser, loading, setLayout } =
@@ -77,7 +80,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar p-0 mt-2 bg-white dark:bg-gray-900 rounded-xl lg:px-10 py-3 dark:text-white ">
+    <div className="navbar mt-2 bg-white dark:bg-gray-900 rounded-xl px-2 sm:px-3 lg:px-6 py-3 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -109,7 +112,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal items-center gap-5 border border-gray-200 rounded-full px-20 shadow-sm">
+        <ul className="menu menu-horizontal items-center gap-5 border border-gray-200 rounded-full lg:px-10 mx-4 shadow-sm">
           {navLinks}
         </ul>
       </div>
@@ -145,16 +148,27 @@ const Navbar = () => {
 
         <div className="">
           <div className="dropdown dropdown-start">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4"
-            >
-              MyProfile
-            </div>
+            {loginUser && (
+              <>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4"
+                >
+                  <span className="hidden sm:inline text-[14px]">
+                    MyProfile
+                  </span>
+                  <FaUserEdit
+                    className="text-black dark:text-black"
+                    size={20}
+                  />
+                </div>
+              </>
+            )}
+
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 gap-2 shadow-sm"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 gap-2 shadow-sm dark:bg-gray-800"
             >
               <li>
                 <NavLink
@@ -185,7 +199,8 @@ const Navbar = () => {
               }
               to={"login"}
             >
-              Logout
+              <span className="hidden sm:inline text-[14px">Logout</span>
+              <FaSignOutAlt size={20} className="text-black dark:text-black" />
             </NavLink>
           ) : (
             <NavLink
@@ -194,7 +209,8 @@ const Navbar = () => {
               }
               to={"login"}
             >
-              Login
+              <span className="hidden sm:inline text-[14px">Login</span>
+              <TbLogin size={20} className="text-black dark:text-black" />
             </NavLink>
           )}
         </div>

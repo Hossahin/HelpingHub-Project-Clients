@@ -67,21 +67,19 @@ const MyVolunteerRequestPost = () => {
 
       <div className="overflow-x-auto mt-10 lg:px-4">
         <div className="w-full inline-block shadow-lg rounded-xl overflow-hidden">
-          <table className="w-full bg-white text-sm text-gray-700 text-center">
+          <table className="w-full bg-white text-[12px] md:text-[14px] text-gray-700 text-center">
             <thead className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white uppercase tracking-wider">
               <tr className="">
                 <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
                   Image
                 </th>
                 <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
-                  Organizername
+                  Organizer
                 </th>
                 <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
                   StartDate
                 </th>
-                <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
-                  Category
-                </th>
+
                 <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
                   Actions
                 </th>
@@ -107,9 +105,6 @@ const MyVolunteerRequestPost = () => {
                   <td className="font-medium text-gray-900 dark:text-gray-300 px-1 py-3 lg:px-6 lg:py-4">
                     {MyVolunteer.startDate}
                   </td>
-                  <td className=" text-gray-700 dark:text-gray-300 px-1 py-3 lg:px-6 lg:py-4">
-                    {MyVolunteer.volunteercategory}
-                  </td>
                   <td className="px-1 py-3 lg:px-6 lg:py-4">
                     <div className="flex justify-center gap-1 lg:gap-3">
                       <button
@@ -118,8 +113,10 @@ const MyVolunteerRequestPost = () => {
                         }
                         className="cursor-pointer flex items-center gap-2 px-2 py-2 lg:px-4 lg:py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow-md hover:bg-red-600 hover:shadow-lg transition-all duration-200"
                       >
-                        <FaTrashAlt className="text-white text-base" />
-                        <span>Cancel Request</span>
+                        <FaTrashAlt className="text-white text-base flex" />
+                        <span className="hidden sm:inline sm:text-[12px] md:text-[14px]">
+                          Cancel Request
+                        </span>
                       </button>
                     </div>
                   </td>

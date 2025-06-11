@@ -8,7 +8,9 @@
   }
 
   .dark{
-    background-color: black;
+    background-color: #131f2e;
+    /* background-color: #070F2B; */
+    /* background-color: #09122C; */
   }
 
   a.active{

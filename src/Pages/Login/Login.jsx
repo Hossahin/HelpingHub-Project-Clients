@@ -67,7 +67,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="mt-7 w-[500px] mx-auto bg-white border border-gray-200 rounded-xl shadow-2xs dark:bg-neutral-900 dark:border-neutral-700">
+      <div className="mt-7 w-full max-w-[500px] mx-auto bg-white border border-gray-200 rounded-xl shadow-2xs dark:bg-gray-900 dark:border-gray-700">
         <div className="p-4 sm:p-7">
           <div className="text-center">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
@@ -88,7 +88,7 @@ const Login = () => {
             <button
               onClick={handleGoogleSignUp}
               type="button"
-              className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+              className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-gray-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
             >
               <svg
                 className="w-4 h-auto"
@@ -135,7 +135,7 @@ const Login = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-gray-700 border dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       required
                       placeholder="Enter your Email"
                     />
@@ -166,7 +166,7 @@ const Login = () => {
                       type="password"
                       id="password"
                       name="password"
-                      className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                      className="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-900 dark:border-gray-700 border dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                       required
                       placeholder="Enter your password"
                     />
