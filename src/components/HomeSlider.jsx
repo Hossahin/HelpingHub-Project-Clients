@@ -23,7 +23,7 @@ const HomeSlider = () => {
       <div className="md:w-11/12 mx-auto">
         <div className="reviews-carousel">
           <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
-            Join Hands, Change Lives
+            Join Hands Change Lives
           </h2>
 
           <Swiper
@@ -80,7 +80,10 @@ const HomeSlider = () => {
 
           <div className="w-11/12 flex justify-end">
             <div ref={progressCircle} className="progress-circle">
-              <span ref={progressContent} className="progress-text">
+              <span
+                ref={progressContent}
+                className="progress-text text-white dark:text-gray-300"
+              >
                 0s
               </span>
             </div>

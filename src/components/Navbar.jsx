@@ -10,6 +10,7 @@ import { BiMenu } from "react-icons/bi";
 import { TbLogin } from "react-icons/tb";
 import { FaSignOutAlt } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
+import logo from "../assets/HelpingHub.png";
 
 const Navbar = () => {
   const { loginUser, signOutUser, loading, setLayout } =
@@ -80,10 +81,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar mt-2 bg-white dark:bg-gray-900 rounded-xl px-2 sm:px-3 lg:px-6 py-3 dark:text-white ">
+    <div className="navbar mt-2 bg-white dark:bg-gray-900 rounded-xl px-2 sm:px-3 lg:px-3 py-3 dark:text-white ">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <div className="dropdown ">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden px-1"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -102,17 +107,21 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow  items-start gap-2"
+            className="menu menu-sm dropdown-content bg-base-100 dark:bg-gray-900 rounded-box z-1 mt-3 w-52 p-2 shadow items-start gap-2"
           >
             {navLinks}
           </ul>
         </div>
-        <Link to={"/"} className="btn btn-ghost text-xl p-0">
-          <h1 className="text-3xl">Hello</h1>
+        <Link to={"/"} className="btn btn-ghost text-xl py-6 px-0 rounded-4xl">
+          <img
+            className="w-[160px] md:w-[200px] lg:w-[200px]"
+            src={logo}
+            alt=""
+          />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal items-center gap-5 border border-gray-200 rounded-full lg:px-10 mx-4 shadow-sm">
+        <ul className="menu menu-horizontal items-center border gap-0.5 border-gray-200 dark:border-gray-500 rounded-full md:px-4 shadow-sm mx-2">
           {navLinks}
         </ul>
       </div>

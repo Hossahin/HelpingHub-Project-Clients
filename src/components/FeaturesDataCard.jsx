@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const FeaturesDataCard = ({ post }) => {
-  const { posttitle, startDate, thumbnail, volunteercategory } = post;
+  const { _id, posttitle, startDate, thumbnail, volunteercategory } = post;
   return (
     <>
       <div className="">
@@ -27,6 +28,14 @@ const FeaturesDataCard = ({ post }) => {
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white leading-snug">
               {posttitle}
             </h2>
+
+            <Link
+              to={`/AllVolunteerNeedposts/volunteerneedpostdetailspage/${_id}`}
+            >
+              <button className="btn btn-soft btn-primary dark:bg-indigo-800 dark:text-white border-0 mt-3 w-full ">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

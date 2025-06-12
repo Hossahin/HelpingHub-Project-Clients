@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { FiInfo } from "react-icons/fi";
 
 const AllVolunteerNeedPostsTable = ({ AllVolunteer }) => {
-  const { _id, thumbnail, startDate, volunteercategory } = AllVolunteer;
+  const { _id, thumbnail,  posttitle, volunteercategory } = AllVolunteer;
   return (
     <>
       <tr
@@ -19,7 +19,7 @@ const AllVolunteerNeedPostsTable = ({ AllVolunteer }) => {
           </div>
         </td>
         <td className="font-medium text-gray-900 dark:text-gray-300 px-1 py-3 lg:px-6 lg:py-4">
-          {startDate}
+          {posttitle}
         </td>
         <td className=" text-gray-700 dark:text-gray-300 px-1 py-3 lg:px-6 lg:py-4">
           {volunteercategory}

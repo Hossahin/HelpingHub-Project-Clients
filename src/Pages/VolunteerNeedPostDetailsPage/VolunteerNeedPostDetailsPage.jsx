@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { IoClose } from "react-icons/io5";
 
 const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
@@ -129,12 +130,21 @@ const VolunteerNeedPostDetailsPage = () => {
           </div>
 
           <div className="flex justify-center pt-4">
-            <button
-              className="btn cursor-pointer px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600"
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-            >
-              Be a Volunteer
-            </button>
+            {Noofvolunteersneeded < 1 ? (
+              <span className="px-4 py-2 rounded-4xl text-indigo-600 bg-indigo-700/30">
+                Volunteer request is closed
+              </span>
+            ) : (
+              <button
+                className="btn cursor-pointer px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-300 dark:focus:ring-indigo-600"
+                onClick={() =>
+                  document.getElementById("my_modal_4").showModal()
+                }
+              >
+                Be a Volunteer
+              </button>
+            )}
+
             <dialog id="my_modal_4" className="modal">
               <div className="modal-box w-11/12 max-w-5xl bg-white dark:bg-gray-900">
                 {/* modal start */}
@@ -412,7 +422,10 @@ const VolunteerNeedPostDetailsPage = () => {
 
                 <div className="modal-action">
                   <form method="dialog">
-                    <button className="btn">Close</button>
+                    <button className="btn bg-red-500 text-white gap-0.5">
+                      <span>Close</span>
+                      <IoClose size={20} />
+                    </button>
                   </form>
                 </div>
               </div>

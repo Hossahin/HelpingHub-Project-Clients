@@ -7,6 +7,9 @@ import AuthContext from "../../context/AuthContext";
 
 const AllVolunteerNeedposts = () => {
   const { layout } = useContext(AuthContext);
+  const [search, setSearch] = useState();
+
+  console.log(search);
 
   useEffect(() => {
     document.title = "All Volunteer Need Post";
@@ -25,12 +28,22 @@ const AllVolunteerNeedposts = () => {
       });
   }, [setAllVolunteerNeedPost]);
 
+  useEffect(() => {
+    fetch(
+      `http://localhost:3000/AllVolunteerNeedposts/Search?searchParams=${search}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setAllVolunteerNeedPost(data);
+      });
+  }, [search]);
+
   if (loading) {
     return <LoadingSpinners />;
   }
   return (
     <div>
-      <SearchBar></SearchBar>
+      <SearchBar setSearch={setSearch}></SearchBar>
 
       {layout === "columns" && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -53,7 +66,7 @@ const AllVolunteerNeedposts = () => {
                     Image
                   </th>
                   <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
-                    StartDate
+                    Posttitle
                   </th>
                   <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">
                     Category
@@ -63,7 +76,7 @@ const AllVolunteerNeedposts = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
+              <tbody className="divide-y divide-gray-100 dark:border-gray-800">
                 {AllVolunteerNeedPost?.map((AllVolunteer) => (
                   <AllVolunteerNeedPostsTable
                     AllVolunteer={AllVolunteer}
@@ -71,7 +84,7 @@ const AllVolunteerNeedposts = () => {
                   ></AllVolunteerNeedPostsTable>
                 ))}
                 {AllVolunteerNeedPost.length === 0 && (
-                  <tr>
+                  <tr className="bg-white dark:bg-gray-800">
                     <td
                       colSpan="4"
                       className="text-center text-gray-500 px-1 py-3 lg:px-6 lg:py-4"

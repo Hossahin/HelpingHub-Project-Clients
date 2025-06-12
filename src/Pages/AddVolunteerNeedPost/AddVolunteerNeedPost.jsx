@@ -159,7 +159,7 @@ const AddVolunteerNeedPost = () => {
                 type="number"
                 name="Noofvolunteersneeded"
                 required
-                min="2"
+                min="1"
                 placeholder="e.g., 25"
                 className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
               />
