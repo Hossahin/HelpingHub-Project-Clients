@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router";
 import AuthContext from "../../context/AuthContext";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { IoClose } from "react-icons/io5";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
@@ -11,6 +11,8 @@ const VolunteerNeedPostDetailsPage = () => {
   useEffect(() => {
     document.title = "Volunteer Details";
   }, []);
+
+  const axiosSecure = useAxiosSecure();
 
   const DetailsData = useLoaderData();
   const {
@@ -42,8 +44,8 @@ const VolunteerNeedPostDetailsPage = () => {
       status: "requested",
     };
 
-    axios
-      .post("http://localhost:3000/VolunteerDetails", volunteerDetailData)
+    axiosSecure
+      .post("VolunteerDetails", volunteerDetailData)
       .then((res) => {
         if (res?.data) {
           Swal.fire({
@@ -60,13 +62,10 @@ const VolunteerNeedPostDetailsPage = () => {
             Noofvolunteersneeded: -1,
           };
 
-          axios
-            .patch(
-              `http://localhost:3000/AllVolunteerNeedposts/${_id}`,
-              updateVolunteerAmount
-            )
+          axiosSecure
+            .patch(`AllVolunteerNeedposts/${_id}`, updateVolunteerAmount)
             .then((res) => {
-              console.log(res.data);
+              console.log(res.data.data);
             })
             .catch((error) => {
               console.log(error);

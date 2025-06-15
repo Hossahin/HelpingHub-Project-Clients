@@ -75,7 +75,7 @@ const SignUp = () => {
         setLoading(false);
 
         axios
-          .post("http://localhost:3000/signup", userData)
+          .post("https://server-side-taupe-mu.vercel.app/signup", userData)
           .then(() => {})
           .catch(() => {});
 

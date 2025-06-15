@@ -209,7 +209,7 @@ const Navbar = () => {
               to={"login"}
             >
               <span className="hidden sm:inline text-[14px">Logout</span>
-              <FaSignOutAlt size={20} className="text-black dark:text-black" />
+              <FaSignOutAlt size={20} />
             </NavLink>
           ) : (
             <NavLink
@@ -219,7 +219,7 @@ const Navbar = () => {
               to={"login"}
             >
               <span className="hidden sm:inline text-[14px">Login</span>
-              <TbLogin size={20} className="text-black dark:text-black" />
+              <TbLogin size={20} />
             </NavLink>
           )}
         </div>

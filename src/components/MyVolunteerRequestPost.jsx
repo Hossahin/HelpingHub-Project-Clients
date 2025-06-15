@@ -1,24 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import LoadingSpinners from "./LoadingSpinners";
-import { Link } from "react-router";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import AuthContext from "../context/AuthContext";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyVolunteerRequestPost = () => {
   const { loginUser } = useContext(AuthContext);
   const [myVolunteerRequestPosts, setMyVolunteerRequestPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/VolunteerDetails/${loginUser?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMyVolunteerRequestPosts(data);
-        setLoading(false);
-      });
-  }, [setMyVolunteerRequestPosts, setLoading, loginUser]);
+    axiosSecure(`VolunteerDetails/${loginUser?.email}`).then((data) => {
+      setMyVolunteerRequestPosts(data.data);
+      setLoading(false);
+    });
+  }, [setMyVolunteerRequestPosts, setLoading, loginUser, axiosSecure]);
 
   if (loading) {
     return <LoadingSpinners />;
@@ -35,8 +35,8 @@ const MyVolunteerRequestPost = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
-          .delete(`http://localhost:3000/VolunteerDetails/${id}`)
+        axiosSecure
+          .delete(`VolunteerDetails/${id}`)
           .then((data) => {
             if (data.data.deletedCount) {
               const remainingData = myVolunteerRequestPosts.filter(

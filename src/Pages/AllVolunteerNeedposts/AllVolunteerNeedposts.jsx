@@ -7,7 +7,7 @@ import AuthContext from "../../context/AuthContext";
 
 const AllVolunteerNeedposts = () => {
   const { layout } = useContext(AuthContext);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
 
   console.log(search);
 
@@ -20,7 +20,7 @@ const AllVolunteerNeedposts = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:3000/AllVolunteerNeedposts")
+    fetch("https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts")
       .then((res) => res.json())
       .then((data) => {
         setAllVolunteerNeedPost(data);
@@ -30,7 +30,7 @@ const AllVolunteerNeedposts = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/AllVolunteerNeedposts/Search?searchParams=${search}`
+      `https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts/Search?searchParams=${search}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -53,6 +53,11 @@ const AllVolunteerNeedposts = () => {
               AllVolunteer={AllVolunteer}
             ></AllVolunteerNeedPostsCard>
           ))}
+          {AllVolunteerNeedPost.length === 0 && (
+            <p className="text-center text-gray-500 col-end-3">
+              No Volunteer need post found.
+            </p>
+          )}
         </div>
       )}
 

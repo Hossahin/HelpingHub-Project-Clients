@@ -4,20 +4,22 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import LoadingSpinners from "./LoadingSpinners";
 import AuthContext from "../context/AuthContext";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyVolunteerNeedPost = () => {
   const { loginUser } = useContext(AuthContext);
   const [MyVolunteerNeedPost, setMyVolunteerNeedPost] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const axiosSecure = useAxiosSecure();
+
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/ManageMyPosts/${loginUser?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMyVolunteerNeedPost(data);
-        setLoading(false);
-      });
-  }, [setMyVolunteerNeedPost, setLoading, loginUser]);
+    axiosSecure(`ManageMyPosts/${loginUser?.email}`).then((data) => {
+      setMyVolunteerNeedPost(data.data);
+      setLoading(false);
+    });
+  }, [setMyVolunteerNeedPost, setLoading, loginUser, axiosSecure]);
 
   if (loading) {
     return <LoadingSpinners />;
@@ -34,25 +36,21 @@ const MyVolunteerNeedPost = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/Myvolunteerneedpost/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              const remainingData = MyVolunteerNeedPost.filter(
-                (post) => post._id !== id
-              );
-              setMyVolunteerNeedPost(remainingData);
-            }
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "My volunteer need post Delete",
-              showConfirmButton: false,
-              timer: 1500,
-            });
+        axiosSecure.delete(`Myvolunteerneedpost/${id}`).then((data) => {
+          if (data.deletedCount) {
+            const remainingData = MyVolunteerNeedPost.filter(
+              (post) => post._id !== id
+            );
+            setMyVolunteerNeedPost(remainingData);
+          }
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "My volunteer need post Delete",
+            showConfirmButton: false,
+            timer: 1500,
           });
+        });
       }
     });
   };

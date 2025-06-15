@@ -5,6 +5,8 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+// eslint-disable-next-line no-unused-vars
+import { easeIn, easeInOut, motion } from "motion/react";
 
 const HomeSlider = () => {
   const progressCircle = useRef(null);
@@ -22,9 +24,20 @@ const HomeSlider = () => {
     <>
       <div className="md:w-11/12 mx-auto">
         <div className="reviews-carousel">
-          <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
+          <motion.h2
+            animate={{
+              x: 200,
+              color: ["#B22222", "#FFC107", "#347433"],
+            }}
+            transition={{
+              delay: 0.1,
+              duration: 0.3,
+              repeat: Infinity,
+            }}
+            className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800"
+          >
             Join Hands Change Lives
-          </h2>
+          </motion.h2>
 
           <Swiper
             spaceBetween={30}

@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+            `https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
           ),
       },
       {
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         Component: UpdateMyvolunteerneedpost,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:3000/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+            `https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
           ),
       },
       {

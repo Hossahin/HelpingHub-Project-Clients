@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "./../../context/AuthContext";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import useAxiosSecure from "./../../hooks/useAxiosSecure";
 
 const AddVolunteerNeedPost = () => {
   const { loginUser } = useContext(AuthContext);
@@ -12,6 +12,7 @@ const AddVolunteerNeedPost = () => {
   }, []);
 
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const handleAddVolunteerNeedPost = (e) => {
     e.preventDefault();
@@ -24,8 +25,8 @@ const AddVolunteerNeedPost = () => {
       VolunteerNeedPost.Noofvolunteersneeded
     );
 
-    axios
-      .post("http://localhost:3000/AddVolunteerNeedPost", VolunteerNeedPost)
+    axiosSecure
+      .post("AddVolunteerNeedPost", VolunteerNeedPost)
       .then((res) => {
         if (res.data) {
           Swal.fire({
@@ -54,7 +55,10 @@ const AddVolunteerNeedPost = () => {
           <p className="mt-2 text-sm text-gray-600"></p>
         </div>
 
-        <form onSubmit={handleAddVolunteerNeedPost} className="space-y-6 dark:text-white">
+        <form
+          onSubmit={handleAddVolunteerNeedPost}
+          className="space-y-6 dark:text-white"
+        >
           <div>
             <label
               htmlFor="Thumbnail"
