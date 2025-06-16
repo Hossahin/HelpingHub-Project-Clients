@@ -43,10 +43,6 @@ const router = createBrowserRouter([
             <VolunteerNeedPostDetailsPage />
           </PrivetRoutes>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
-          ),
       },
       {
         path: "ManageMyPosts",

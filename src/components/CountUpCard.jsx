@@ -4,7 +4,6 @@ import { BiUserCircle } from "react-icons/bi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaUserFriends } from "react-icons/fa";
 import { TbWorldUpload } from "react-icons/tb";
-import { easeInOut, motion } from "motion/react";
 
 const CountUpCard = () => {
   return (
@@ -18,18 +17,7 @@ const CountUpCard = () => {
           difference.
         </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto">
-          <motion.div
-            className=""
-            animate={{
-              x: [0, 0, 0, 0, 0],
-              y: [0, -320, 0, 0, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: easeInOut,
-            }}
-          >
+          <div className="">
             <CountUp
               start={0}
               end={950}
@@ -67,23 +55,9 @@ const CountUpCard = () => {
                 </div>
               )}
             </CountUp>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className=""
-            // animate={{
-            //   x: [0, 50, 0],
-            // }}
-
-            animate={{
-              x: [0, -400, 0, 0, 0],
-              y: [0, 0, 0, 0, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-          >
+          <div>
             <CountUp
               start={1}
               end={2000}
@@ -121,19 +95,9 @@ const CountUpCard = () => {
                 </div>
               )}
             </CountUp>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className=""
-            animate={{
-              x: [0, 400, 0, 0, 0],
-              y: [0, 0, 0, 0, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-          >
+          <div className="">
             <CountUp
               start={0}
               end={720}
@@ -171,19 +135,9 @@ const CountUpCard = () => {
                 </div>
               )}
             </CountUp>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className=""
-            animate={{
-              x: [0, 0, 0, 0, 0],
-              y: [0, 320, 0, 0, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-          >
+          <div className="">
             <CountUp
               start={0}
               end={890}
@@ -221,7 +175,7 @@ const CountUpCard = () => {
                 </div>
               )}
             </CountUp>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

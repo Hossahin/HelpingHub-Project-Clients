@@ -156,19 +156,19 @@ const Navbar = () => {
         </div>
 
         <div className="">
-          <div className="dropdown dropdown-start">
+          <div className="dropdown dropdown-end">
             {loginUser && (
               <>
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4"
+                  className="hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
                 >
-                  <span className="hidden sm:inline text-[14px]">
+                  <span className="hidden sm:inline text-[16px]">
                     MyProfile
                   </span>
                   <FaUserEdit
-                    className="text-black dark:text-black"
+                    className="text-black dark:text-white"
                     size={20}
                   />
                 </div>
@@ -177,12 +177,14 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 gap-2 shadow-sm dark:bg-gray-800"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 mt-2  lg:w-2xs p-4 gap-2 shadow-sm dark:bg-gray-900"
             >
               <li>
                 <NavLink
                   to={"AddVolunteerNeedPost"}
-                  className={"btn hover:bg-indigo-700 hover:text-white"}
+                  className={
+                    "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                  }
                 >
                   Add Volunteer need Post
                 </NavLink>
@@ -190,7 +192,9 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to={"ManageMyPosts"}
-                  className={"btn hover:bg-indigo-700 hover:text-white"}
+                  className={
+                    "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                  }
                 >
                   Manage My Posts
                 </NavLink>
@@ -204,7 +208,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleLogout}
               className={
-                "btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 hover:bg-indigo-700 hover:text-white"
+                "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
               }
               to={"login"}
             >

@@ -1,20 +1,42 @@
-import React, { useContext, useEffect } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import AuthContext from "../../context/AuthContext";
 import Swal from "sweetalert2";
 import { IoClose } from "react-icons/io5";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import LoadingSpinners from "../../components/LoadingSpinners";
 
 const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
+  const [detailsData, setDetailsData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = "Volunteer Details";
   }, []);
 
+  const navigate = useNavigate();
+  
   const axiosSecure = useAxiosSecure();
 
-  const DetailsData = useLoaderData();
+  const params = useParams();
+
+  useEffect(() => {
+    setLoading(true);
+    axiosSecure(
+      `AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+    ).then((data) => {
+      setDetailsData(data.data);
+      setLoading(false);
+    });
+  }, [axiosSecure, setLoading, setDetailsData, params]);
+
+  if (loading) {
+    return <LoadingSpinners />;
+  }
+
+  console.log("detailsData----------", detailsData);
+
   const {
     _id,
     Location,
@@ -26,10 +48,8 @@ const VolunteerNeedPostDetailsPage = () => {
     startDate,
     thumbnail,
     volunteercategory,
-  } = DetailsData;
-  console.log(DetailsData);
-
-  const navigate = useNavigate();
+  } = detailsData;
+  console.log(detailsData);
 
   const handleAddVolunteer = (e) => {
     e.preventDefault();

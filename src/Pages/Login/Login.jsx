@@ -23,7 +23,7 @@ const Login = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "✅ Sign-In Success",
+          title: "Sign-In Success",
           text: "Welcome back! You’ve signed in successfully.",
           showConfirmButton: true,
           timer: 1500,
@@ -36,7 +36,7 @@ const Login = () => {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: "❌ Sign-In Failed",
+          title: "Sign-In Failed",
           text: "Invalid credentials. Please check your email and password.",
           showConfirmButton: true,
           timer: 1500,
@@ -53,7 +53,7 @@ const Login = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "🎉 Login Successful!",
+          title: "Login Successful!",
           text: "Login successful. Let's get started!",
           showConfirmButton: true,
           timer: 1500,
