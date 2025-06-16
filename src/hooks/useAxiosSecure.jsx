@@ -11,6 +11,9 @@ const axiosInstance = axios.create({
 const useAxiosSecure = () => {
   const { loginUser, signOutUser } = use(AuthContext);
   const token = loginUser?.accessToken;
+  if (!loginUser?.accessToken) {
+    return;
+  }
 
   console.log(loginUser);
 

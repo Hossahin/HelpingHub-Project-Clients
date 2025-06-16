@@ -55,10 +55,6 @@ const router = createBrowserRouter([
       {
         path: "Myvolunteerneedpost/update/:id",
         Component: UpdateMyvolunteerneedpost,
-        loader: ({ params }) =>
-          fetch(
-            `https://server-side-taupe-mu.vercel.app/AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
-          ),
       },
       {
         path: "login",

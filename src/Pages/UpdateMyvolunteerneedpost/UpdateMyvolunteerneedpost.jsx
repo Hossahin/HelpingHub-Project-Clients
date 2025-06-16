@@ -1,18 +1,41 @@
-import React, { useContext, useEffect } from "react";
-import { Navigate, useLoaderData, useNavigate } from "react-router";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import LoadingSpinners from "../../components/LoadingSpinners";
 
 const UpdateMyvolunteerneedpost = () => {
   const { loginUser } = useContext(AuthContext);
-  const VolunteerNeedPost = useLoaderData();
+  const [loading, setLoading] = useState(false);
+  const [volunteerNeedPost, setVolunteerNeedPost] = useState([]);
+  const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     document.title = "Update My Volunteer Need Post";
   }, []);
 
-  const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    if (!loginUser) {
+      return;
+    }
+
+    setLoading(true);
+    axiosSecure(
+      `AllVolunteerNeedposts/volunteerneedpostdetailspage/${params.id}`
+    ).then((data) => {
+      setVolunteerNeedPost(data.data);
+      setLoading(false);
+    });
+  }, [setVolunteerNeedPost, setLoading, axiosSecure, params, loginUser]);
+
+  if (loading) {
+    return <LoadingSpinners />;
+  }
 
   const {
     _id,
@@ -23,7 +46,7 @@ const UpdateMyvolunteerneedpost = () => {
     startDate,
     thumbnail,
     volunteercategory,
-  } = VolunteerNeedPost;
+  } = volunteerNeedPost;
 
   const handleAddVolunteerNeedPost = (e) => {
     e.preventDefault();
@@ -48,7 +71,6 @@ const UpdateMyvolunteerneedpost = () => {
             showConfirmButton: true,
             timer: 1500,
           });
-          console.log(res.data);
           navigate("/ManageMyPosts");
         }
       })

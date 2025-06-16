@@ -4,6 +4,8 @@ import image2 from "../assets/vector-style/Voluntary Support.svg";
 import image3 from "../assets/vector-style/Senior Services.svg";
 import image4 from "../assets/vector-style/Save Earth.svg";
 import { easeIn, easeInOut, motion } from "motion/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const VolunteersWorking = () => {
   return (
@@ -12,7 +14,7 @@ const VolunteersWorking = () => {
         <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
           Our Impact Areas
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5" data-aos="fade-up" data-aos-duration="3000">
           <motion.div
             className="card bg-base-100 dark:bg-gray-900 shadow-sm"
             style={{

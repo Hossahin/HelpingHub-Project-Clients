@@ -4,8 +4,18 @@ import { BiUserCircle } from "react-icons/bi";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaUserFriends } from "react-icons/fa";
 import { TbWorldUpload } from "react-icons/tb";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CountUpCard = () => {
+  AOS.init({
+    offset: 120,
+    duration: 1000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
   return (
     <>
       <div className="w-full lg:w-11/12 mx-auto my-12">
@@ -17,7 +27,7 @@ const CountUpCard = () => {
           difference.
         </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto">
-          <div className="">
+          <div className="" data-aos="fade-right">
             <CountUp
               start={0}
               end={950}
@@ -57,7 +67,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div>
+          <div data-aos="fade-up-right">
             <CountUp
               start={1}
               end={2000}
@@ -97,7 +107,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div className="">
+          <div className="" data-aos="fade-up-left">
             <CountUp
               start={0}
               end={720}
@@ -137,7 +147,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div className="">
+          <div className="" data-aos="fade-left">
             <CountUp
               start={0}
               end={890}

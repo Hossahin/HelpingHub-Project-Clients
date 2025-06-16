@@ -5,7 +5,8 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomeSlider = () => {
   const progressCircle = useRef(null);
@@ -20,11 +21,21 @@ const HomeSlider = () => {
     }
   };
 
-
+  AOS.init({
+    offset: 120,
+    duration: 1000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
 
   return (
     <>
-      <div className="md:w-11/12 mx-auto">
+      <div
+        className="md:w-11/12 mx-auto"
+        data-aos="flip-up"
+      >
         <div className="reviews-carousel">
           <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
             Join Hands Change Lives
