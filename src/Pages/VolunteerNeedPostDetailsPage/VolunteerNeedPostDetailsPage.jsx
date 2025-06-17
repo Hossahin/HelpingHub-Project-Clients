@@ -171,13 +171,13 @@ const VolunteerNeedPostDetailsPage = () => {
                   <div className="w-full shadow-xl rounded-lg p-3 bg-white dark:bg-gray-900">
                     <div className="text-center mb-8">
                       <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 hover:scale-110 transition-all duration-800">
-                        Update volunteer need Post
+                        Submit Volunteer Request
                       </h1>
 
                       <p className="mt-2 text-sm text-gray-600"></p>
                     </div>
 
-                    <form onSubmit={handleAddVolunteer} className="space-y-6">
+                    <form onSubmit={handleAddVolunteer} className="space-y-6 dark:text-gray-500">
                       <div>
                         <label
                           htmlFor="Thumbnail"
@@ -193,7 +193,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           readOnly
                           required
                           placeholder="Enter Thumbnail URL"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
                       <div>
@@ -211,7 +211,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           readOnly
                           required
                           placeholder="Enter Post Title"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
@@ -230,7 +230,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           readOnly
                           required
                           placeholder="What's your volunteer about?"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         ></textarea>
                       </div>
 
@@ -247,7 +247,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           value={volunteercategory}
                           readOnly
                           required
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         >
                           <option value={""} disabled selected>
                             Select a category
@@ -274,7 +274,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           readOnly
                           required
                           placeholder="Add a location"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
@@ -295,7 +295,7 @@ const VolunteerNeedPostDetailsPage = () => {
                             required
                             min="2"
                             placeholder="e.g., 25"
-                            className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                            className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                           />
                         </div>
                         <div>
@@ -312,12 +312,12 @@ const VolunteerNeedPostDetailsPage = () => {
                             readOnly
                             name="startDate"
                             required
-                            className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                            className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                           />
                         </div>
                       </div>
 
-                      <hr className="my-8 border-gray-300" />
+                      <hr className="my-8 border-gray-300 dark:border-gray-500" />
 
                       <div className="text-center mb-6">
                         <h2 className="text-xl font-semibold text-indigo-700">
@@ -340,7 +340,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           name="organizername"
                           required
                           placeholder="Organizer name"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
@@ -359,11 +359,11 @@ const VolunteerNeedPostDetailsPage = () => {
                           name="organizeremail"
                           required
                           placeholder="you@example.com"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
-                      <hr className="my-8 border-gray-300" />
+                      <hr className="my-8 border-gray-300 dark:border-gray-500" />
 
                       <div className="text-center mb-6">
                         <h2 className="text-xl font-semibold text-indigo-700">
@@ -386,7 +386,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           name="volunteername"
                           required
                           placeholder="volunteer name"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
@@ -405,7 +405,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           name="volunteeremail"
                           required
                           placeholder="you@example.com"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         />
                       </div>
 
@@ -422,7 +422,7 @@ const VolunteerNeedPostDetailsPage = () => {
                           rows="2"
                           required
                           placeholder="What's your suggestion?"
-                          className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                          className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
                         ></textarea>
                       </div>
 

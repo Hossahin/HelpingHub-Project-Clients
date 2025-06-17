@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import LoadingSpinners from "./LoadingSpinners";
 import AuthContext from "../context/AuthContext";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MyVolunteerNeedPost = () => {
   const { loginUser } = useContext(AuthContext);
@@ -12,6 +14,15 @@ const MyVolunteerNeedPost = () => {
   const [loading, setLoading] = useState(false);
 
   const axiosSecure = useAxiosSecure();
+
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -56,7 +67,7 @@ const MyVolunteerNeedPost = () => {
   };
   return (
     <>
-      <div>
+      <div data-aos="fade-right">
         <div className="">
           <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
             My volunteer need post

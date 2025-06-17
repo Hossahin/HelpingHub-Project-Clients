@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 const CountUpCard = () => {
   AOS.init({
     offset: 120,
-    duration: 1000,
+    duration: 2000,
     easeIn: "easeInOut",
     delay: 100,
     once: false,

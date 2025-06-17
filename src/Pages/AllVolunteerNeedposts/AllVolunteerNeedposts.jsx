@@ -4,12 +4,21 @@ import AllVolunteerNeedPostsCard from "../../components/AllVolunteerNeedPostsCar
 import SearchBar from "../../components/SearchBar";
 import AllVolunteerNeedPostsTable from "../../components/AllVolunteerNeedPostsTable";
 import AuthContext from "../../context/AuthContext";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AllVolunteerNeedposts = () => {
   const { layout } = useContext(AuthContext);
   const [search, setSearch] = useState("");
 
-  console.log(search);
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
 
   useEffect(() => {
     document.title = "All Volunteer Need Post";
@@ -42,7 +51,7 @@ const AllVolunteerNeedposts = () => {
     return <LoadingSpinners />;
   }
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-duration="3000">
       <SearchBar setSearch={setSearch}></SearchBar>
 
       {layout === "columns" && (

@@ -162,15 +162,12 @@ const Navbar = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                  className="hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
                 >
                   <span className="hidden sm:inline text-[16px]">
                     MyProfile
                   </span>
-                  <FaUserEdit
-                    className="text-black dark:text-white"
-                    size={20}
-                  />
+                  <FaUserEdit className=" dark:text-white" size={20} />
                 </div>
               </>
             )}
@@ -183,7 +180,7 @@ const Navbar = () => {
                 <NavLink
                   to={"AddVolunteerNeedPost"}
                   className={
-                    "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                    "hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
                   }
                 >
                   Add Volunteer need Post
@@ -193,7 +190,7 @@ const Navbar = () => {
                 <NavLink
                   to={"ManageMyPosts"}
                   className={
-                    "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                    "hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
                   }
                 >
                   Manage My Posts
@@ -208,7 +205,7 @@ const Navbar = () => {
             <NavLink
               onClick={handleLogout}
               className={
-                "hover:bg-indigo-700 flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                "hover:bg-indigo-700 hover:text-white  flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
               }
               to={"login"}
             >

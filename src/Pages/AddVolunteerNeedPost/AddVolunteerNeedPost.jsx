@@ -3,6 +3,8 @@ import AuthContext from "./../../context/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import useAxiosSecure from "./../../hooks/useAxiosSecure";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AddVolunteerNeedPost = () => {
   const { loginUser } = useContext(AuthContext);
@@ -11,9 +13,17 @@ const AddVolunteerNeedPost = () => {
     document.title = "Add Volunteer Need Post";
   }, []);
 
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
+
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-
 
   const handleAddVolunteerNeedPost = (e) => {
     e.preventDefault();
@@ -46,7 +56,10 @@ const AddVolunteerNeedPost = () => {
   };
 
   return (
-    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
+    <div
+      data-aos="zoom-in"
+      className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center"
+    >
       <div className="max-w-2xl w-full  shadow-xl rounded-lg p-6 sm:p-8 md:p-10 bg-white dark:bg-gray-900">
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 hover:scale-110 transition-all duration-800">
@@ -58,7 +71,7 @@ const AddVolunteerNeedPost = () => {
 
         <form
           onSubmit={handleAddVolunteerNeedPost}
-          className="space-y-6 dark:text-white"
+          className="space-y-6  dark:text-gray-500"
         >
           <div>
             <label
@@ -73,7 +86,7 @@ const AddVolunteerNeedPost = () => {
               name="thumbnail"
               required
               placeholder="Enter Thumbnail URL"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             />
           </div>
           <div>
@@ -89,7 +102,7 @@ const AddVolunteerNeedPost = () => {
               name="posttitle"
               required
               placeholder="Enter Post Title"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             />
           </div>
 
@@ -106,7 +119,7 @@ const AddVolunteerNeedPost = () => {
               rows="4"
               required
               placeholder="What's your volunteer about?"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             ></textarea>
           </div>
 
@@ -122,7 +135,7 @@ const AddVolunteerNeedPost = () => {
               name="volunteercategory"
               required
               defaultValue={""}
-              className="mt-1 w-full px-4 py-3 border border-gray-300 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             >
               <option value={""} disabled selected>
                 Select a category
@@ -147,7 +160,7 @@ const AddVolunteerNeedPost = () => {
               type="text"
               required
               placeholder="Add a location"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             />
           </div>
 
@@ -166,7 +179,7 @@ const AddVolunteerNeedPost = () => {
                 required
                 min="1"
                 placeholder="e.g., 25"
-                className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
               />
             </div>
             <div>
@@ -181,12 +194,12 @@ const AddVolunteerNeedPost = () => {
                 type="date"
                 name="startDate"
                 required
-                className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+                className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
               />
             </div>
           </div>
 
-          <hr className="my-8 border-gray-300" />
+          <hr className="my-8 border-gray-300 dark:border-gray-500" />
 
           <div className="text-center mb-6">
             <h2 className="text-xl font-semibold text-indigo-700">
@@ -209,14 +222,14 @@ const AddVolunteerNeedPost = () => {
               name="organizername"
               required
               placeholder="Organizer name"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             />
           </div>
 
           <div>
             <label
               htmlFor="organizeremail"
-              className="block text-sm font-semibold text-gray-800 dark:text-gray-300 mb-1"
+              className="block text-sm font-semibold text-gray-800  dark:text-gray-300 mb-1"
             >
               Organizer email
             </label>
@@ -228,7 +241,7 @@ const AddVolunteerNeedPost = () => {
               name="organizeremail"
               required
               placeholder="you@example.com"
-              className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
+              className="mt-1 w-full px-4 py-3 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out"
             />
           </div>
 
