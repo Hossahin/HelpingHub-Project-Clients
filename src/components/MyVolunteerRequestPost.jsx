@@ -38,12 +38,12 @@ const MyVolunteerRequestPost = () => {
   const handleDeleteMyVolunteerRequestPost = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be Cancel this!",
+      text: "Cancel your request now?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
@@ -58,7 +58,7 @@ const MyVolunteerRequestPost = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Cancel My Volunteer Request",
+              title: "Request has been canceled!",
               showConfirmButton: false,
               timer: 1500,
             });

@@ -43,8 +43,8 @@ const AddVolunteerNeedPost = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfully Add Post",
-            text: "Your Post successfully save DB",
+            title: "Post Submitted",
+            text: "Your data has been successfully saved.",
             showConfirmButton: true,
             timer: 1500,
           });

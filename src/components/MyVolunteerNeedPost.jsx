@@ -39,7 +39,7 @@ const MyVolunteerNeedPost = () => {
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "are you delete this!",
+      text: "Delete this post?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -56,7 +56,7 @@ const MyVolunteerNeedPost = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "My volunteer need post Delete",
+            title: "My Volunteer post deleted",
             showConfirmButton: false,
             timer: 1500,
           });

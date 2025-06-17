@@ -79,8 +79,8 @@ const VolunteerNeedPostDetailsPage = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfully as a Join Volunteer",
-            text: "Your Data successfully Save DB",
+            title: "You’ve Joined as a Volunteer!",
+            text: "Your information has been saved.",
             showConfirmButton: true,
             timer: 2500,
           });
