@@ -46,8 +46,6 @@ const VolunteerNeedPostDetailsPage = () => {
     return <LoadingSpinners />;
   }
 
-  console.log("detailsData----------", detailsData);
-
   const {
     _id,
     Location,
@@ -60,7 +58,6 @@ const VolunteerNeedPostDetailsPage = () => {
     thumbnail,
     volunteercategory,
   } = detailsData;
-  console.log(detailsData);
 
   const handleAddVolunteer = (e) => {
     e.preventDefault();
@@ -95,12 +92,8 @@ const VolunteerNeedPostDetailsPage = () => {
 
           axiosSecure
             .patch(`AllVolunteerNeedposts/${_id}`, updateVolunteerAmount)
-            .then((res) => {
-              console.log(res.data.data);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+            .then(() => {})
+            .catch(() => {});
           // end
 
           navigate("/ManageMyPosts");

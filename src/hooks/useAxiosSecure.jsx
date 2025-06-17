@@ -14,9 +14,6 @@ const useAxiosSecure = () => {
   if (!loginUser?.accessToken) {
     return;
   }
-
-  console.log(loginUser);
-
   axiosInstance.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;
     return config;
@@ -48,7 +45,15 @@ const useAxiosSecure = () => {
               });
             }
           })
-          .catch((err) => console.log(err));
+          .catch((err) =>
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              text: `Status ${err?.status || ""}`,
+              showConfirmButton: true,
+              timer: 1500,
+            })
+          );
       }
       return Promise.reject(err);
     }

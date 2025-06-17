@@ -19,7 +19,7 @@ const Login = () => {
     const password = e.target.password.value;
 
     signInUser(email, password)
-      .then((result) => {
+      .then(() => {
         Swal.fire({
           position: "center",
           icon: "success",
@@ -28,11 +28,10 @@ const Login = () => {
           showConfirmButton: true,
           timer: 1500,
         });
-        console.log(result);
         navigate(`${location.state ? location.state : "/"}`);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         Swal.fire({
           position: "center",
           icon: "error",
@@ -41,15 +40,13 @@ const Login = () => {
           showConfirmButton: true,
           timer: 1500,
         });
-
-        console.log(error);
         setLoading(false);
       });
   };
 
   const handleGoogleSignUp = () => {
     signInWithGoogle()
-      .then((result) => {
+      .then(() => {
         Swal.fire({
           position: "center",
           icon: "success",
@@ -58,7 +55,6 @@ const Login = () => {
           showConfirmButton: true,
           timer: 1500,
         });
-        console.log(result);
         setLoading(false);
         navigate(`${location.state ? location.state : "/"}`);
       })

@@ -42,7 +42,7 @@ export function ModeToggle() {
       {open && (
         <div className="absolute left-0 z-20 mt-2 w-36 origin-top-right rounded-md bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1 text-sm text-gray-700 dark:text-gray-100">
-            {modes.map(({ id, label, icon }) => {
+            {modes?.map(({ id, label, icon }) => {
               const selected = theme === id;
               return (
                 <button
