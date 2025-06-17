@@ -62,7 +62,7 @@ const Navbar = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "✅ Logout Successful",
+          title: "Logout Successful",
           text: "You have been successfully logged out.",
           showConfirmButton: true,
           timer: 1500,
@@ -72,7 +72,7 @@ const Navbar = () => {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: "❌ Logout Failed",
+          title: "Logout Failed",
           text: "Something went wrong. Please try again.",
           showConfirmButton: true,
           timer: 1500,
@@ -215,7 +215,7 @@ const Navbar = () => {
           ) : (
             <NavLink
               className={
-                "btn py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 hover:bg-indigo-700 hover:text-white"
+                "hover:bg-indigo-700 hover:text-white  flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
               }
               to={"login"}
             >

@@ -66,7 +66,7 @@ const SignUp = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "🎉 Registration Successful!",
+          title: "Registration Successful!",
           text: "Registration successful. Let's get started!",
           showConfirmButton: true,
           timer: 1500,
@@ -87,7 +87,7 @@ const SignUp = () => {
       })
       .catch(() => {
         Swal.fire({
-          title: "❌ Registration Failed",
+          title: "Registration Failed",
           text: "Something went wrong. Please try again.",
           icon: "error",
           draggable: true,
@@ -101,7 +101,7 @@ const SignUp = () => {
     signInWithGoogle()
       .then(() => {
         Swal.fire({
-          title: "🎉 Registration Successful!",
+          title: "Registration Successful!",
           text: "Registration successful. Let's get started!",
           icon: "success",
           draggable: true,
@@ -111,7 +111,7 @@ const SignUp = () => {
       })
       .catch(() => {
         Swal.fire({
-          title: "🎉 Sign in with Google failed",
+          title: "Sign in with Google failed",
           icon: "error",
           draggable: true,
         });
