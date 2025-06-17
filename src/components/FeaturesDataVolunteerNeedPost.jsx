@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import LoadingSpinners from "./LoadingSpinners";
 import FeaturesDataCard from "./FeaturesDataCard";
 import { Link } from "react-router";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const FeaturesDataVolunteerNeedPost = () => {
   const [volunteerNeedPost, setVolunteerNeedPost] = useState([]);
@@ -22,10 +24,17 @@ const FeaturesDataVolunteerNeedPost = () => {
     return <LoadingSpinners />;
   }
 
-  console.log(volunteerNeedPost);
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
 
   return (
-    <div className="">
+    <div className="" data-aos="zoom-in-down">
       <h2 className="text-indigo-700 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl my-6 hover:scale-110 transition-all duration-800">
         Ongoing Volunteer Openings
       </h2>

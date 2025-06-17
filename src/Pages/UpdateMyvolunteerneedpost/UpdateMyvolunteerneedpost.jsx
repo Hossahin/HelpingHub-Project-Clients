@@ -5,6 +5,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinners from "../../components/LoadingSpinners";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const UpdateMyvolunteerneedpost = () => {
   const { loginUser } = useContext(AuthContext);
@@ -16,6 +18,15 @@ const UpdateMyvolunteerneedpost = () => {
   useEffect(() => {
     document.title = "Update My Volunteer Need Post";
   }, []);
+
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
 
   const params = useParams();
 
@@ -78,7 +89,10 @@ const UpdateMyvolunteerneedpost = () => {
   };
 
   return (
-    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center">
+    <div
+      data-aos="zoom-out-up"
+      className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center"
+    >
       <div className="max-w-2xl w-full  shadow-xl rounded-lg p-6 sm:p-8 md:p-10 bg-white dark:bg-gray-900">
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-indigo-700 hover:scale-110 transition-all duration-800">

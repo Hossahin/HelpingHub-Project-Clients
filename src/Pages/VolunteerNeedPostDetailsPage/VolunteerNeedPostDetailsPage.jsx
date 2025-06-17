@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import { IoClose } from "react-icons/io5";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinners from "../../components/LoadingSpinners";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const VolunteerNeedPostDetailsPage = () => {
   const { loginUser } = useContext(AuthContext);
@@ -15,8 +17,17 @@ const VolunteerNeedPostDetailsPage = () => {
     document.title = "Volunteer Details";
   }, []);
 
+  AOS.init({
+    offset: 120,
+    duration: 2000,
+    easeIn: "easeInOut",
+    delay: 100,
+    once: false,
+    mirror: false,
+  });
+
   const navigate = useNavigate();
-  
+
   const axiosSecure = useAxiosSecure();
 
   const params = useParams();
@@ -99,7 +110,7 @@ const VolunteerNeedPostDetailsPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto md:p-6 mt-10">
+    <div data-aos="zoom-in-up" className="max-w-4xl mx-auto md:p-6 mt-10">
       <div className="bg-white/30 dark:bg-gray-800/50 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden transition-colors duration-500 border border-gray-200 dark:border-gray-700">
         <img
           src={thumbnail}
@@ -177,7 +188,10 @@ const VolunteerNeedPostDetailsPage = () => {
                       <p className="mt-2 text-sm text-gray-600"></p>
                     </div>
 
-                    <form onSubmit={handleAddVolunteer} className="space-y-6 dark:text-gray-500">
+                    <form
+                      onSubmit={handleAddVolunteer}
+                      className="space-y-6 dark:text-gray-500"
+                    >
                       <div>
                         <label
                           htmlFor="Thumbnail"
