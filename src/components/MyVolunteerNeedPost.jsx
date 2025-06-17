@@ -47,13 +47,12 @@ const MyVolunteerNeedPost = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`Myvolunteerneedpost/${id}`).then((data) => {
-          if (data.deletedCount) {
-            const remainingData = MyVolunteerNeedPost.filter(
-              (post) => post._id !== id
-            );
-            setMyVolunteerNeedPost(remainingData);
-          }
+        axiosSecure.delete(`Myvolunteerneedpost/${id}`).then(() => {
+          const remainingData = MyVolunteerNeedPost.filter(
+            (post) => post._id !== id
+          );
+          setMyVolunteerNeedPost(remainingData);
+
           Swal.fire({
             position: "center",
             icon: "success",
