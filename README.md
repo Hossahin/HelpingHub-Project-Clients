@@ -62,3 +62,15 @@ Private routes require login via Firebase.
 - Protected routes using Firebase Auth
 - Fully responsive and mobile-friendly design
 - Dark and light theme toggle
+
+## Local Setup Guide
+
+Follow these steps to run HelpingHub locally on your machine.
+
+### Steps
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Hossahin/HelpingHub-Project-Clients.git
+cd HelpingHub-Project-Clients
