@@ -72,7 +72,6 @@ Follow these steps to run HelpingHub locally on your machine.
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/Hossahin/HelpingHub-Project-Clients.git
+git clone https://github.com/Hossahin/HelpingHub-Project-Clients.git 
 
-```bash
 cd HelpingHub-Project-Clients
