@@ -4,6 +4,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
 
+
 const SignUp = () => {
   const { createUser, profileUpdate, setLoading, signInWithGoogle } =
     useContext(AuthContext);
