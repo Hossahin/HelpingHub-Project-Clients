@@ -32,7 +32,8 @@ const Navbar = () => {
           to={"AllVolunteerNeedposts"}
           className={"hover:bg-indigo-700 hover:text-white"}
         >
-          All volunteer Need posts
+          {/* All volunteer Need posts */}
+          All Post
         </NavLink>
       </li>
 
@@ -174,26 +175,28 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 mt-2  lg:w-2xs p-4 gap-2 shadow-sm dark:bg-gray-900"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 gap-2 shadow-sm dark:bg-gray-900"
             >
               <li>
                 <NavLink
                   to={"AddVolunteerNeedPost"}
                   className={
-                    "hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                    "hover:bg-indigo-700 bg-indigo-700/10 hover:text-white flex gap-2 cursor-pointer border border-indigo-400 dark:border-gray-500 rounded"
                   }
                 >
-                  Add Volunteer need Post
+                  {/* Add Volunteer need Post */}
+                  Add Post
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to={"ManageMyPosts"}
                   className={
-                    "hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
+                    "hover:bg-indigo-700 bg-indigo-700/10 hover:text-white flex gap-2 cursor-pointer border border-indigo-400 dark:border-gray-500 rounded"
                   }
                 >
-                  Manage My Posts
+                  {/* Manage My Posts */}
+                  My Posts
                 </NavLink>
               </li>
             </ul>

@@ -26,7 +26,7 @@ const CountUpCard = () => {
           Measuring the powerful results of our shared commitment to making a
           difference.
         </p>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto">
           <div className="" data-aos="fade-right">
             <CountUp
               start={0}
