@@ -10,6 +10,8 @@ import ErrorPages from "../Pages/ErrorPages/ErrorPages";
 import VolunteerNeedPostDetailsPage from "../Pages/VolunteerNeedPostDetailsPage/VolunteerNeedPostDetailsPage";
 import UpdateMyvolunteerneedpost from "../Pages/UpdateMyvolunteerneedpost/UpdateMyvolunteerneedpost";
 import PrivetRoutes from "../Pages/PrivetRoutes/PrivetRoutes";
+import About from "../Pages/About/About";
+import Events from "../Pages/Events/Events";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,18 @@ const router = createBrowserRouter([
       {
         path: "AllVolunteerNeedposts",
         Component: AllVolunteerNeedposts,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+      {
+        path: "events",
+        element: (
+          <PrivetRoutes>
+            <Events />
+          </PrivetRoutes>
+        ),
       },
       {
         path: "AddVolunteerNeedPost",

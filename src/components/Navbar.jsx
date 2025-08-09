@@ -35,6 +35,43 @@ const Navbar = () => {
           All Post
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to={"about"}
+          className={"hover:bg-indigo-700 hover:text-white"}
+        >
+          About
+        </NavLink>
+      </li>
+
+      {loginUser && (
+        <>
+          <li>
+            <NavLink
+              to={"events"}
+              className={"hover:bg-indigo-700 hover:text-white"}
+            >
+              Events
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"AddVolunteerNeedPost"}
+              className={"hover:bg-indigo-700 hover:text-white"}
+            >
+              Add Post
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"ManageMyPosts"}
+              className={"hover:bg-indigo-700 hover:text-white"}
+            >
+              My Posts
+            </NavLink>
+          </li>
+        </>
+      )}
 
       <button
         data-tooltip-id="tooltip1"
@@ -88,7 +125,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar mt-2 bg-white dark:bg-gray-900 rounded-xl px-2 sm:px-3 lg:px-3 py-3 dark:text-white ">
+    <div className="navbar mt-2 bg-indigo-700/5 dark:bg-gray-800 rounded-xl px-2 sm:px-3 lg:px-3 py-3 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown ">
           <div
@@ -133,28 +170,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-1 md:gap-2 lg:gap-3">
-        <div className="flex items-center">
-          {/* {loginUser && (
-            <>
-              <button
-                className="my-anchor-element"
-                data-tooltip-id="my-tooltip"
-              >
-                <div className="avatar">
-                  <div className="ring-primary cursor-pointer ring-offset-base-100 mr-1 sm:m-1 md:m-0 w-9 md:w-10 rounded-full ring-2 ring-offset-2">
-                    <img
-                      src={
-                        loginUser?.photoURL ||
-                        "https://img.icons8.com/?size=80&id=108639&format=png"
-                      }
-                    />
-                  </div>
-                </div>
-              </button>
-            </>
-          )} */}
-        </div>
-
         <div className="">
           <div className="dropdown dropdown-end">
             {loginUser && (
@@ -180,26 +195,6 @@ const Navbar = () => {
               tabIndex={0}
               className="dropdown-content menu gap-2 mt-2 w-44 rounded-xl bg-base-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg z-20 p-2"
             >
-              <li>
-                <NavLink
-                  to="AddVolunteerNeedPost"
-                  className="flex items-center gap-3 rounded-lg border border-indigo-400 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white cursor-pointer px-3 py-2 transition duration-200"
-                >
-                  <FaPlus size={16} />
-                  <span>Add Post</span>
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to="ManageMyPosts"
-                  className="flex items-center gap-3 rounded-lg border border-indigo-400 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white cursor-pointer px-3 py-2 transition duration-200"
-                >
-                  <FaListAlt size={16} />
-                  <span>My Posts</span>
-                </NavLink>
-              </li>
-
               <li>
                 <NavLink
                   to="login"

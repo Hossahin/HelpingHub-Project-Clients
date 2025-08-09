@@ -26,8 +26,11 @@ const CountUpCard = () => {
           Measuring the powerful results of our shared commitment to making a
           difference.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto">
-          <div className="" data-aos="fade-right">
+        <div
+          data-aos="zoom-in"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-11/12 md:w-full lg:w-full mx-auto"
+        >
+          <div>
             <CountUp
               start={0}
               end={950}
@@ -67,7 +70,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div data-aos="fade-up-right">
+          <div>
             <CountUp
               start={1}
               end={2000}
@@ -107,7 +110,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div className="" data-aos="fade-up-left">
+          <div>
             <CountUp
               start={0}
               end={720}
@@ -147,7 +150,7 @@ const CountUpCard = () => {
             </CountUp>
           </div>
 
-          <div className="" data-aos="fade-left">
+          <div>
             <CountUp
               start={0}
               end={890}

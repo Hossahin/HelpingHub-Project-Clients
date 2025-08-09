@@ -5,6 +5,11 @@ import VolunteersWorking from "../../components/VolunteersWorking";
 import CountUpCard from "../../components/CountUpCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Newsletter from "../../components/Newsletter";
+import HowItWorks from "../../components/HowItWorks";
+import Testimonials from "../../components/Testimonials";
+import UpcomingEvents from "../../components/UpcomingEvents";
+import VolunteerRoles from "../../components/VolunteerRoles";
 
 const Home = () => {
   useEffect(() => {
@@ -26,6 +31,11 @@ const Home = () => {
       <FeaturesDataVolunteerNeedPost></FeaturesDataVolunteerNeedPost>
       <VolunteersWorking></VolunteersWorking>
       <CountUpCard></CountUpCard>
+      <Testimonials />
+      <HowItWorks />
+      <UpcomingEvents />
+      <VolunteerRoles />
+      <Newsletter />
     </div>
   );
 };

@@ -32,7 +32,7 @@ const FeaturesDataCard = ({ post }) => {
             <Link
               to={`/AllVolunteerNeedposts/volunteerneedpostdetailspage/${_id}`}
             >
-              <button className="btn btn-soft btn-primary dark:bg-indigo-800 dark:text-white border-0 mt-3 w-full ">
+              <button className="btn btn-soft btn-primary dark:bg-indigo-800 dark:text-white border-0 mt-3 w-full">
                 View Details
               </button>
             </Link>
