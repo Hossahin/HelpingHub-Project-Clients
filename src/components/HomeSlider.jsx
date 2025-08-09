@@ -33,7 +33,7 @@ const HomeSlider = () => {
   return (
     <>
       <div
-        className="md:w-11/12 mx-auto"
+        className=" mx-auto"
         data-aos="flip-up"
       >
         <div className="reviews-carousel">
