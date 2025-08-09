@@ -8,8 +8,7 @@ import { ModeToggle } from "./ModeToggle";
 import { CgLayoutGridSmall } from "react-icons/cg";
 import { BiMenu } from "react-icons/bi";
 import { TbLogin } from "react-icons/tb";
-import { FaSignOutAlt } from "react-icons/fa";
-import { FaUserEdit } from "react-icons/fa";
+import { FaPlus, FaListAlt, FaSignOutAlt } from "react-icons/fa";
 import logo from "../assets/HelpingHub.png";
 
 const Navbar = () => {
@@ -38,6 +37,8 @@ const Navbar = () => {
       </li>
 
       <button
+        data-tooltip-id="tooltip1"
+        data-tooltip-content="Only For All Post Page"
         className="cursor-pointer active:text-indigo-700"
         onClick={() => setLayout("columns")}
       >
@@ -45,13 +46,18 @@ const Navbar = () => {
       </button>
 
       <button
+        data-tooltip-id="tooltip2"
+        data-tooltip-content="Only For All Post Page"
         className="cursor-pointer active:text-indigo-700"
         onClick={() => setLayout("table")}
       >
         <BiMenu className="m-1" size={30} />
       </button>
 
-      <li>
+      <Tooltip id="tooltip1" />
+      <Tooltip id="tooltip2" />
+
+      <li className="cursor-pointer">
         <ModeToggle></ModeToggle>
       </li>
     </>
@@ -128,7 +134,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-1 md:gap-2 lg:gap-3">
         <div className="flex items-center">
-          {loginUser && (
+          {/* {loginUser && (
             <>
               <button
                 className="my-anchor-element"
@@ -145,58 +151,63 @@ const Navbar = () => {
                   </div>
                 </div>
               </button>
-              <Tooltip
-                id="my-tooltip"
-                place="top"
-                anchorSelect=".my-anchor-element"
-              >
-                <p>{loginUser?.displayName}</p>
-              </Tooltip>
             </>
-          )}
+          )} */}
         </div>
 
         <div className="">
           <div className="dropdown dropdown-end">
             {loginUser && (
-              <>
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="hover:bg-indigo-700 hover:text-white flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
-                >
-                  <span className="hidden sm:inline text-[16px]">
-                    MyProfile
-                  </span>
-                  <FaUserEdit className=" dark:text-white" size={20} />
+              <button
+                className="my-anchor-element"
+                data-tooltip-id="my-tooltip"
+              >
+                <div className="avatar">
+                  <div className="w-9 md:w-10 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100 cursor-pointer transition duration-300 hover:ring-indigo-500 hover:scale-105 mr-1 sm:m-1 md:m-0">
+                    <img
+                      src={
+                        loginUser?.photoURL ||
+                        "https://img.icons8.com/?size=80&id=108639&format=png"
+                      }
+                      alt="User Avatar"
+                    />
+                  </div>
                 </div>
-              </>
+              </button>
             )}
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-1 mt-2 gap-2 shadow-sm dark:bg-gray-900"
+              className="dropdown-content menu gap-2 mt-2 w-44 rounded-xl bg-base-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg z-20 p-2"
             >
               <li>
                 <NavLink
-                  to={"AddVolunteerNeedPost"}
-                  className={
-                    "hover:bg-indigo-700 bg-indigo-700/10 hover:text-white flex gap-2 cursor-pointer border border-indigo-400 dark:border-gray-500 rounded"
-                  }
+                  to="AddVolunteerNeedPost"
+                  className="flex items-center gap-3 rounded-lg border border-indigo-400 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white cursor-pointer px-3 py-2 transition duration-200"
                 >
-                  {/* Add Volunteer need Post */}
-                  Add Post
+                  <FaPlus size={16} />
+                  <span>Add Post</span>
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
-                  to={"ManageMyPosts"}
-                  className={
-                    "hover:bg-indigo-700 bg-indigo-700/10 hover:text-white flex gap-2 cursor-pointer border border-indigo-400 dark:border-gray-500 rounded"
-                  }
+                  to="ManageMyPosts"
+                  className="flex items-center gap-3 rounded-lg border border-indigo-400 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white cursor-pointer px-3 py-2 transition duration-200"
                 >
-                  {/* Manage My Posts */}
-                  My Posts
+                  <FaListAlt size={16} />
+                  <span>My Posts</span>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="login"
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 rounded-lg border border-indigo-700 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white px-3 py-2 transition duration-200"
+                >
+                  <FaSignOutAlt size={16} />
+                  <span className="text-sm">Logout</span>
                 </NavLink>
               </li>
             </ul>
@@ -204,26 +215,15 @@ const Navbar = () => {
         </div>
 
         <div className="">
-          {loginUser ? (
+          {!loginUser && (
             <NavLink
-              onClick={handleLogout}
-              className={
-                "hover:bg-indigo-700 hover:text-white  flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
-              }
-              to={"login"}
+              to="login"
+              className="flex items-center gap-3 rounded-lg border border-indigo-700 dark:border-gray-500 bg-indigo-700/10 hover:bg-indigo-700 hover:text-white px-3 py-2 transition duration-200 shadow-sm cursor-pointer"
             >
-              <span className="hidden sm:inline text-[14px">Logout</span>
-              <FaSignOutAlt size={20} />
-            </NavLink>
-          ) : (
-            <NavLink
-              className={
-                "hover:bg-indigo-700 hover:text-white  flex gap-2 py-1 px-2 md:py-2 md:px-3 lg:py-3 lg:px-4 cursor-pointer border border-gray-200 dark:border-gray-500 rounded"
-              }
-              to={"login"}
-            >
-              <span className="hidden sm:inline text-[14px">Login</span>
-              <TbLogin size={20} />
+              <TbLogin size={18} />
+              <span className="hidden sm:inline text-sm font-medium">
+                Login
+              </span>
             </NavLink>
           )}
         </div>
