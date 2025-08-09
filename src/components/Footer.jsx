@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="uppercase font-medium dark:text-gray-300">
               Social media
             </div>
-            <div className="flex justify-start space-x-3 dark:text-gray-400">
+            <div className="md:flex justify-start space-x-3 dark:text-gray-400">
               <Link
                 to={"https://www.facebook.com/"}
                 target="_blank"

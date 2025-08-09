@@ -71,9 +71,9 @@ const AllVolunteerNeedposts = () => {
       )}
 
       {layout === "table" && (
-        <div className="overflow-x-auto mt-10 lg:px-4">
-          <div className="w-full inline-block shadow-lg rounded-xl overflow-hidden">
-            <table className="w-full bg-white text-sm text-gray-700 text-[12px] md:text-[14px] text-center">
+        <div className="overflow-x-auto mt-10 lg:px-4 ">
+          <div className="w-full inline-block shadow-lg rounded-xl ">
+            <table className="w-full bg-white text-sm text-gray-700 text-[12px] md:text-[14px] text-center overflow-x-auto">
               <thead className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white uppercase tracking-wider">
                 <tr className="">
                   <th className="font-semibold px-1 py-3 lg:px-6 lg:py-4">

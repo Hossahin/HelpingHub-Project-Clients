@@ -71,7 +71,7 @@ const AddVolunteerNeedPost = () => {
 
         <form
           onSubmit={handleAddVolunteerNeedPost}
-          className="space-y-6  dark:text-gray-500"
+          className="space-y-6 dark:text-gray-500"
         >
           <div>
             <label
