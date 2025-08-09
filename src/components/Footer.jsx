@@ -4,16 +4,16 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="px-4 divide-y divide-gray-300 dark:divide-gray-600">
-      <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
-        <div className="lg:w-1/3">
+    <footer className=" divide-y divide-gray-300 dark:divide-gray-600 w-11/12 mx-auto">
+      <div className=" flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+        <div className="lg:w-1/3 flex items-center">
           <span className="text-2xl font-semibold">
             <Link to={"/"}>
               <img className="w-[200px]" src={logo} alt="" />
             </Link>
           </span>
         </div>
-        <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 text-sm gap-x-10 gap-y-8 lg:w-2/3 sm:grid-cols-4">
           <div className="space-y-3">
             <h3 className="tracking-wide uppercase font-medium dark:text-gray-300">
               Product
