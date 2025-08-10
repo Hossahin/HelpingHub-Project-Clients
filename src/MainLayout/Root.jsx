@@ -14,7 +14,7 @@ const Root = () => {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 mt-20">
         <div className="w-11/12 mx-auto my-10">
           {state === "loading" ? <LoadingSpinners /> : <Outlet></Outlet>}
         </div>

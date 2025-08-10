@@ -2,7 +2,7 @@ import React from "react";
 
 const MissionVision = () => {
   return (
-    <section className="py-16 px-6  mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-md">
+    <section className="py-16 px-6 mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-md">
       <h2 className="text-3xl font-semibold mb-10 text-center text-gray-900 dark:text-gray-100">
         Our Mission & Vision
       </h2>

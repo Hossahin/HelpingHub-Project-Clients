@@ -33,7 +33,7 @@ const TeamMembers = () => {
   }, []);
 
   return (
-    <div className="py-16 px-6 mx-auto">
+    <div className="py-16 mx-auto">
       <h2 className="text-3xl font-semibold mb-8 text-center">Meet Our Team</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10  mx-auto">
         {teamMembers.map(({ id, name, role, photo }) => (

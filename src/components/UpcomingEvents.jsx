@@ -37,7 +37,7 @@ const events = [
 
 const UpcomingEvents = () => {
   return (
-    <section className="py-12 px-6  mx-auto">
+    <section className="py-12">
       <h2 className="text-3xl font-semibold mb-10 text-center">
         Upcoming Events
       </h2>
